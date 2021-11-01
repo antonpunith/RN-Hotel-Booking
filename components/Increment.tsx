@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { View, Text, Button, StyleSheet } from "react-native";
-import { connect } from "react-redux";
+import { connect, ConnectedProps } from "react-redux";
 import * as actions from "../actions";
 
 const Increment = ({value, incrementValue}) => {
@@ -29,3 +29,4 @@ const styles = StyleSheet.create({
     backgroundColor: "#eee",
   },
 });
+type PropsFromRedux = ConnectedProps<typeof connector>;
