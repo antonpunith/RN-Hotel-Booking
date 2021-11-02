@@ -1,7 +1,8 @@
 import * as React from "react";
 import { StyleSheet, Image, Pressable } from "react-native";
-
+import { useDispatch } from "react-redux";
 import { Text, View } from "./Themed";
+import{selectHotel} from '../redux/actions'
 
 interface HotelProps {
   hotel: {
@@ -12,12 +13,16 @@ interface HotelProps {
 }
 
 export function Hotel({ hotel, navigation }: HotelProps) {
-  const bookBtn = () => {
-    navigation.navigate("Detail");
+  const dispatch = useDispatch();
+  const showDetails = (name: string) => {
+    return () => {
+      dispatch(selectHotel(name));
+      navigation.navigate("Detail");
+    }
   };
   const { name, image } = hotel;
   return (
-    <Pressable style={styles.container} onPress={bookBtn}>
+    <Pressable style={styles.container} onPress={showDetails(name)}>
       <View style={styles.row}>
         <Image
           style={styles.image}
@@ -27,7 +32,7 @@ export function Hotel({ hotel, navigation }: HotelProps) {
         />
         <View style={styles.content}>
           <Text style={styles.text}>{name}</Text>
-          <View style={styles.bookBtn}>
+          <View style={styles.showDetails}>
             <Text style={styles.btnText}>Explore</Text>
           </View>
         </View>
@@ -67,7 +72,7 @@ const styles = StyleSheet.create({
     alignContent: "flex-start",
     justifyContent: "flex-start",
   },
-  bookBtn: {
+  showDetails: {
     marginBottom: 5,
     marginHorizontal: 20,
     padding: 10,

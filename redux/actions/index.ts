@@ -4,6 +4,7 @@ import {
   SELECT_CITY,
   FETCHING_HOTELS,
   FETCHED_HOTELS,
+  HOTEL_DETAILS,
 } from "../action-types";
 import axios from 'axios';
 
@@ -52,3 +53,8 @@ export const fetchHotels = (dispatch: any, getState: any) => {
     })
     .catch((e) => console.error(e));
 };
+
+export const selectHotel = (payload: any) => ({
+  type: HOTEL_DETAILS,
+  payload,
+});

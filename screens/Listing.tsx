@@ -29,8 +29,9 @@ export default function TabOneScreen({ navigation }: RootTabScreenProps<'TabOne'
       <FlatList
         data={filteredHotels}
         renderItem={({ item }) => (
-          <Hotel key={item.name} navigation={navigation} hotel={item} />
+          <Hotel navigation={navigation} hotel={item} />
         )}
+        keyExtractor={(item) => item.name}
       />
     </View>
   );

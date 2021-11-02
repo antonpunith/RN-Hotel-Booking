@@ -11,7 +11,6 @@ export default function Detail() {
   const details = hotels.find((hotel: any) => 
     hotel.name === selectedHotel
   );
-  console.log(hotels);
 
   return (
     <View style={styles.container}>
