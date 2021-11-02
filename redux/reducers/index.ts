@@ -1,12 +1,37 @@
 import { combineReducers } from "redux";
+import { FETCHED_CITIES, SELECT_CITY } from "../action-types";
 
-const incrementReducer = (state, action) => {
-  let value = 1;
-  console.log("increment Reducer", state, value);
-  if (action.type === "increment_value") {
-    value = state + 1;
+
+const initialCityState: string[] = [];
+const citiesReducer = (state: string[], action: any) => {
+  if(!state) {
+    state = initialCityState;
   }
-  return value;
+  switch (action.type) {
+    case FETCHED_CITIES:
+      if (action.payload) {
+        return action.payload;
+      }
+    default:
+      return state;
+  }
 };
 
-export const rootReducer = combineReducers({ value: incrementReducer });
+const selectedCityReducer = (state: string, action: any) => {
+  if (!state) {
+    state = "";
+  }
+  switch (action.type) {
+    case SELECT_CITY:
+      if (action.payload) {
+        return action.payload;
+      }
+    default:
+      return state;
+  }
+};
+
+export const rootReducer = combineReducers({
+  cities: citiesReducer,
+  selectedCity: selectedCityReducer,
+});

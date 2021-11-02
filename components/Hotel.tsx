@@ -13,7 +13,6 @@ interface HotelProps {
 
 export function Hotel({ hotel, navigation }: HotelProps) {
   const bookBtn = () => {
-    console.log(hotel);
     navigation.navigate("Detail");
   };
   const { name, image } = hotel;
