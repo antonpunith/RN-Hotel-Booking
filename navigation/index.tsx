@@ -19,6 +19,7 @@ import Listing from '../screens/Listing';
 import Profile from '../screens/Profile';
 import { RootStackParamList, RootTabParamList, RootTabScreenProps } from '../types';
 import LinkingConfiguration from './LinkingConfiguration';
+import Postcode from "../screens/Postcode";
 
 export default function Navigation({ colorScheme }: { colorScheme: ColorSchemeName }) {
   return (
@@ -43,6 +44,11 @@ function RootNavigator() {
         name="Root"
         component={BottomTabNavigator}
         options={{ headerShown: false }}
+      />
+      <Stack.Screen
+        name="Listing"
+        component={Listing}
+        options={{ title: "Detail" }}
       />
       <Stack.Screen
         name="Detail"
@@ -79,7 +85,7 @@ function BottomTabNavigator() {
     >
       <BottomTab.Screen
         name="TabOne"
-        component={Listing}
+        component={Postcode}
         options={({ navigation }: RootTabScreenProps<"TabOne">) => ({
           title: "Book Hotel",
           tabBarIcon: ({ color }) => (
