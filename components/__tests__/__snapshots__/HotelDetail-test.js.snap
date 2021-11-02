@@ -1,0 +1,57 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders correctly 1`] = `
+<View
+  style={
+    Array [
+      Object {
+        "backgroundColor": "#fff",
+      },
+      Object {
+        "flex": 1,
+      },
+    ]
+  }
+>
+  <Text
+    style={
+      Array [
+        Object {
+          "color": "#000",
+        },
+        Object {
+          "fontSize": 20,
+          "fontWeight": "bold",
+        },
+      ]
+    }
+  >
+    Quest Mounts Bay Road
+  </Text>
+  <Image
+    source={
+      Object {
+        "uri": "https://cf.bstatic.com/xdata/images/hotel/square200/77513936.webp?k=c7e5276cb06face82eafc0f1e52f84c10f62cd81ae944ce38596b142e0a065eb&o=&s=1",
+      }
+    }
+    style={
+      Object {
+        "height": 300,
+        "width": "100%",
+      }
+    }
+  />
+  <Text
+    style={
+      Array [
+        Object {
+          "color": "#000",
+        },
+        undefined,
+      ]
+    }
+  >
+     You’re eligible for a Genius discount at Quest Mounts Bay Road! To save at this property, all you have to do is Quest Mounts Bay Road is conveniently located near the Perth Convention & Exhibition Centre and only a 16-minute walk to Perth’s CBD. Guests staying in a self-contained apartment at Quest Mounts Bay Road can stroll along the Swan River, which is 10 minutes’ walk away. The property is just a 12-minute walk from the beautiful Kings Park.
+  </Text>
+</View>
+`;

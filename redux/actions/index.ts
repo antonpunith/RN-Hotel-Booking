@@ -8,11 +8,6 @@ import {
 } from "../action-types";
 import axios from 'axios';
 
-export const incrementValue = (value: string) => ({
-  type: "increment_value",
-  payload: value,
-});
-
 export const fetchingCities = () => ({
   type: FETCHING_CITIES,
 });

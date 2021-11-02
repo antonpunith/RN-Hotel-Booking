@@ -15,6 +15,7 @@ export default function TabOneScreen({ navigation }: RootTabScreenProps<'TabOne'
   useEffect(() => {
     dispatch(fetchHotels);
   }, []);
+  // TODO test dispatch when loaded
 
   useEffect(() => {
     if (selectedCity && selectedCity !== "All Locations") {
@@ -23,6 +24,7 @@ export default function TabOneScreen({ navigation }: RootTabScreenProps<'TabOne'
       );
     }
   }, [selectedCity, hotels]);
+  // TODO check filtered hotels when state changes
   return (
     <View style={styles.container}>
       <Text style={styles.title}>Location: {selectedCity}</Text>

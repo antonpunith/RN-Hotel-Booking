@@ -1,0 +1,128 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders correctly 1`] = `
+<View
+  accessible={true}
+  collapsable={false}
+  focusable={true}
+  onBlur={[Function]}
+  onClick={[Function]}
+  onFocus={[Function]}
+  onResponderGrant={[Function]}
+  onResponderMove={[Function]}
+  onResponderRelease={[Function]}
+  onResponderTerminate={[Function]}
+  onResponderTerminationRequest={[Function]}
+  onStartShouldSetResponder={[Function]}
+  style={
+    Object {
+      "flex": 1,
+    }
+  }
+>
+  <View
+    style={
+      Array [
+        Object {
+          "backgroundColor": "#fff",
+        },
+        Object {
+          "flexDirection": "row",
+        },
+      ]
+    }
+  >
+    <Image
+      source={
+        Object {
+          "uri": "https://cf.bstatic.com/xdata/images/hotel/square200/77513936.webp?k=c7e5276cb06face82eafc0f1e52f84c10f62cd81ae944ce38596b142e0a065eb&o=&s=1",
+        }
+      }
+      style={
+        Object {
+          "height": 120,
+          "width": 120,
+        }
+      }
+    />
+    <View
+      style={
+        Array [
+          Object {
+            "backgroundColor": "#fff",
+          },
+          Object {
+            "alignContent": "flex-start",
+            "flex": 1,
+            "justifyContent": "flex-start",
+          },
+        ]
+      }
+    >
+      <Text
+        style={
+          Array [
+            Object {
+              "color": "#000",
+            },
+            Object {
+              "fontWeight": "bold",
+              "paddingHorizontal": 20,
+              "paddingVertical": 15,
+            },
+          ]
+        }
+      >
+        Quest Mounts Bay Road
+      </Text>
+      <View
+        style={
+          Array [
+            Object {
+              "backgroundColor": "#fff",
+            },
+            Object {
+              "alignItems": "center",
+              "backgroundColor": "#f37121",
+              "justifyContent": "center",
+              "marginBottom": 5,
+              "marginHorizontal": 20,
+              "padding": 10,
+              "width": 70,
+            },
+          ]
+        }
+      >
+        <Text
+          style={
+            Array [
+              Object {
+                "color": "#000",
+              },
+              Object {
+                "color": "#fff",
+              },
+            ]
+          }
+        >
+          Explore
+        </Text>
+      </View>
+    </View>
+  </View>
+  <View
+    style={
+      Array [
+        Object {
+          "backgroundColor": "#eee",
+        },
+        Object {
+          "height": 1,
+          "marginVertical": 5,
+          "width": "100%",
+        },
+      ]
+    }
+  />
+</View>
+`;

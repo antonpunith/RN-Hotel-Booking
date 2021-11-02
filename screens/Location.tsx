@@ -15,18 +15,21 @@ export default function Location({ navigation }: any) {
   useEffect(() => {
     dispatch(fetchCities);
   }, []);
+  // TODO check dispatch when component is mounted
 
   useEffect(() => {
     if (selectedCity) {
       navigation.navigate("Listing");
     }
   }, [selectedCity]);
+  // TODO check navigation when selectedCity is set
 
   const handleClick = (city: string) => {
     return () => {
       dispatch(selectCity(city));
     };
   };
+  // TODO check dispatch when element clicked
 
   return (
     <View style={styles.container}>
