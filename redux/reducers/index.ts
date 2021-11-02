@@ -9,4 +9,4 @@ const incrementReducer = (state, action) => {
   return value;
 };
 
-export default combineReducers({ value: incrementReducer });
+export const rootReducer = combineReducers({ value: incrementReducer });

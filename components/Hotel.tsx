@@ -8,15 +8,17 @@ interface HotelProps {
     name: string;
     image: string;
   };
+  navigation: any;
 }
 
-export function Hotel({ hotel }: HotelProps) {
+export function Hotel({ hotel, navigation }: HotelProps) {
   const bookBtn = () => {
     console.log(hotel);
+    navigation.navigate("Detail");
   };
   const { name, image } = hotel;
   return (
-    <View style={styles.container}>
+    <Pressable style={styles.container} onPress={bookBtn}>
       <View style={styles.row}>
         <Image
           style={styles.image}
@@ -26,9 +28,9 @@ export function Hotel({ hotel }: HotelProps) {
         />
         <View style={styles.content}>
           <Text style={styles.text}>{name}</Text>
-          <Pressable style={styles.bookBtn} onPress={bookBtn}>
-            <Text>Explore</Text>
-          </Pressable>
+          <View style={styles.bookBtn}>
+            <Text style={styles.btnText}>Explore</Text>
+          </View>
         </View>
       </View>
       <View
@@ -36,7 +38,7 @@ export function Hotel({ hotel }: HotelProps) {
         lightColor="#eee"
         darkColor="rgba(255,255,255,0.1)"
       />
-    </View>
+    </Pressable>
   );
 }
 
@@ -45,7 +47,9 @@ const styles = StyleSheet.create({
     flex: 1,
   },
   text: {
-    padding: 10,
+    paddingHorizontal: 20,
+    paddingVertical: 15,
+    fontWeight: 'bold'
   },
   separator: {
     marginVertical: 5,
@@ -65,11 +69,15 @@ const styles = StyleSheet.create({
     justifyContent: "flex-start",
   },
   bookBtn: {
-    margin: 10,
+    marginBottom: 5,
+    marginHorizontal: 20,
     padding: 10,
-    backgroundColor: "#bada55",
+    backgroundColor: "#f37121",
     width: 70,
     alignItems: "center",
     justifyContent: "center",
   },
+  btnText: {
+    color: '#fff'
+  }
 });

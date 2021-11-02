@@ -1,9 +1,9 @@
 import React, { Component } from "react";
 import { View, Text, Button, StyleSheet } from "react-native";
 import { connect, ConnectedProps } from "react-redux";
-import * as actions from "../actions";
+import * as actions from "../redux/actions";
 
-const Increment = ({value, incrementValue}) => {
+const Increment = ({value, incrementValue}: any) => {
     return (
       <View style={styles.container}>
         <Text style={styles.value}>{value}</Text>
@@ -12,7 +12,7 @@ const Increment = ({value, incrementValue}) => {
     );
 }
 
-const mapStateToProps = (state) => ({ ...state });
+const mapStateToProps = (state: any) => ({ ...state });
 
 export default connect(mapStateToProps, actions)(Increment);
 
@@ -29,4 +29,3 @@ const styles = StyleSheet.create({
     backgroundColor: "#eee",
   },
 });
-type PropsFromRedux = ConnectedProps<typeof connector>;

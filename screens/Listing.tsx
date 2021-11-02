@@ -1,6 +1,6 @@
 import * as React from 'react';
 import { StyleSheet, FlatList } from "react-native";
-import {  View } from "../components/Themed";
+import { View } from "../components/Themed";
 import { Hotel } from "../components/Hotel";
 import { RootTabScreenProps } from '../types';
 
@@ -27,7 +27,9 @@ export default function TabOneScreen({ navigation }: RootTabScreenProps<'TabOne'
     <View style={styles.container}>
       <FlatList
         data={roomList}
-        renderItem={({ item }) => <Hotel hotel={item} />}
+        renderItem={({ item }) => (
+          <Hotel navigation={navigation} hotel={item} />
+        )}
       />
     </View>
   );
