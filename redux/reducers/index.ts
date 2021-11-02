@@ -1,5 +1,5 @@
 import { combineReducers } from "redux";
-import { FETCHED_CITIES, SELECT_CITY } from "../action-types";
+import { FETCHED_CITIES, SELECT_CITY, FETCHED_HOTELS } from "../action-types";
 
 
 const initialCityState: string[] = [];
@@ -31,7 +31,22 @@ const selectedCityReducer = (state: string, action: any) => {
   }
 };
 
+const hotelsListReducer = (state: any[], action: any) => {
+  if (!state) {
+    state = [];
+  }
+  switch (action.type) {
+    case FETCHED_HOTELS:
+      if (action.payload) {
+        return action.payload;
+      }
+    default:
+      return state;
+  }
+}
+
 export const rootReducer = combineReducers({
   cities: citiesReducer,
   selectedCity: selectedCityReducer,
+  hotels: hotelsListReducer,
 });

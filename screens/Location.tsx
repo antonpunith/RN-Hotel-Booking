@@ -42,6 +42,14 @@ export default function Location({ navigation }: any) {
           </Pressable>
         );
       })}
+      <Pressable
+        style={
+          "All Locations" === selectedCity ? styles.selectActive : styles.select
+        }
+        onPress={handleClick("All Locations")}
+      >
+        <Text>All Locations</Text>
+      </Pressable>
     </View>
   );
 }
@@ -60,13 +68,13 @@ const styles = StyleSheet.create({
     padding: 10,
     borderColor: "#eeeeee",
     borderWidth: 2,
-    width: 100,
+    width: 150,
   },
   selectActive: {
     padding: 10,
     borderColor: "#eeeeee",
     backgroundColor: '#f37121',
     borderWidth: 2,
-    width: 100,
+    width: 150,
   },
 });
