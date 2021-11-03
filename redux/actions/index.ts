@@ -7,14 +7,16 @@ import {
   HOTEL_DETAILS,
 } from "../action-types";
 import axios from 'axios';
+import {hotelType} from '../reducers'
 
 export const fetchingCities = () => ({
   type: FETCHING_CITIES,
 });
 
-export const fetchedCities = (payload: any) => ({
-  type: FETCHED_CITIES, payload
-})
+export const fetchedCities = (payload: hotelType[]) => ({
+  type: FETCHED_CITIES,
+  payload,
+});
 
 export const fetchCities = (dispatch: any, getState: any) => {
   dispatch(fetchingCities());
@@ -34,7 +36,9 @@ export const fetchingHotels = () => ({
   type: FETCHING_HOTELS,
 });
 
-export const fetchedHotels = (payload: any) => ({
+
+
+export const fetchedHotels = (payload: hotelType[]) => ({
   type: FETCHED_HOTELS,
   payload,
 });
@@ -49,7 +53,7 @@ export const fetchHotels = (dispatch: any, getState: any) => {
     .catch((e) => console.error(e));
 };
 
-export const selectHotel = (payload: any) => ({
+export const selectHotel = (payload: string) => ({
   type: HOTEL_DETAILS,
   payload,
 });

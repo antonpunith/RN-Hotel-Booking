@@ -1,15 +1,16 @@
 import * as React from "react";
-import { Image } from "react-native";
 import { useSelector } from "react-redux";
-import { Text, View } from "../components/Themed";
 import HotelDetail from "../components/HotelDetail";
+import { rootReducerType, hotelType } from "../redux/reducers";
 
 export default function Detail() {
-  const hotels = useSelector((state: any) => state.hotels.list);
-  const selectedHotel = useSelector((state: any) => state.hotels.selected);
+  const hotels = useSelector((state: rootReducerType) => state.hotels.list);
+  const selectedHotel = useSelector(
+    (state: rootReducerType) => state.hotels.selected
+  );
 
-  const details = hotels.find((hotel: any) => 
-    hotel.name === selectedHotel
+  const details = hotels.find(
+    (hotel: hotelType) => hotel.name === selectedHotel
   );
 
   return <HotelDetail selectedHotel={selectedHotel} details={details} />;

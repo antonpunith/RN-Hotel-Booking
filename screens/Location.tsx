@@ -5,11 +5,14 @@ import { StyleSheet, Pressable } from "react-native";
 import { useDispatch, useSelector } from "react-redux";
 import { fetchCities, selectCity } from "../redux/actions";
 import { Text, View } from "../components/Themed";
+import { rootReducerType, hotelType } from "../redux/reducers";
 
 export default function Location({ navigation }: any) {
   const dispatch = useDispatch();
-  const cities = useSelector((state: any) => state.cities);
-  const selectedCity = useSelector((state: any) => state.selectedCity);
+  const cities = useSelector((state: rootReducerType) => state.cities);
+  const selectedCity = useSelector(
+    (state: rootReducerType) => state.selectedCity
+  );
   const [selectedLanguage, setSelectedLanguage] = useState("Java");
 
   useEffect(() => {
@@ -33,8 +36,8 @@ export default function Location({ navigation }: any) {
 
   return (
     <View style={styles.container}>
-      <Text style={styles.title}>Select Location: {selectedCity}</Text>
-      {cities.map((city: any) => {
+      <Text style={styles.title}>Select Location</Text>
+      {cities.map((city: string) => {
         return (
           <Pressable
             key={city}
@@ -66,6 +69,7 @@ const styles = StyleSheet.create({
   title: {
     fontSize: 20,
     fontWeight: "bold",
+    padding: 20
   },
   select: {
     padding: 10,

@@ -6,7 +6,6 @@ import {
   HOTEL_DETAILS,
 } from "../action-types";
 
-
 const initialCityState: string[] = [];
 const citiesReducer = (state: string[], action: any) => {
   if(!state) {
@@ -36,11 +35,22 @@ const selectedCityReducer = (state: string, action: any) => {
   }
 };
 
-const hotelsListReducer = (state: any, action: any) => {
+export interface hotelType {
+  name: string,
+  city: string,
+  description: string,
+  image: string
+}
+export interface hotelsListType {
+  list: hotelType[];
+  selected: string;
+}
+
+const hotelsListReducer = (state: hotelsListType, action: any) => {
   if (!state) {
     state = {
       list: [],
-      selected: ''
+      selected: "",
     };
   }
   switch (action.type) {
@@ -55,6 +65,12 @@ const hotelsListReducer = (state: any, action: any) => {
     default:
       return state;
   }
+};
+
+export interface rootReducerType {
+  cities: string[];
+  selectedCity: string;
+  hotels: hotelsListType;
 }
 
 export const rootReducer = combineReducers({

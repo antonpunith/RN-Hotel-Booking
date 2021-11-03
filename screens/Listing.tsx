@@ -5,12 +5,15 @@ import { Hotel } from "../components/Hotel";
 import { RootTabScreenProps } from '../types';
 import { useDispatch, useSelector } from "react-redux";
 import {fetchHotels} from '../redux/actions'
+import { rootReducerType, hotelType } from "../redux/reducers";
 
 
 export default function TabOneScreen({ navigation }: RootTabScreenProps<'TabOne'>) {
   const dispatch = useDispatch();
-  const selectedCity = useSelector((state: any) => state.selectedCity);
-  const hotels = useSelector((state: any) => state.hotels.list);
+  const selectedCity = useSelector(
+    (state: rootReducerType) => state.selectedCity
+  );
+  const hotels = useSelector((state: rootReducerType) => state.hotels.list);
   const [filteredHotels, setFilteredHotels] = useState(hotels);
   useEffect(() => {
     dispatch(fetchHotels);
@@ -20,7 +23,7 @@ export default function TabOneScreen({ navigation }: RootTabScreenProps<'TabOne'
   useEffect(() => {
     if (selectedCity && selectedCity !== "All Locations") {
       setFilteredHotels(
-        hotels.filter((hotel: any) => hotel.city === selectedCity)
+        hotels.filter((hotel: hotelType) => hotel.city === selectedCity)
       );
     }
   }, [selectedCity, hotels]);
@@ -47,7 +50,8 @@ const styles = StyleSheet.create({
   title: {
     fontSize: 20,
     fontWeight: 'bold',
-    textAlign: 'center'
+    textAlign: 'center',
+    padding: 20
   },
   separator: {
     marginVertical: 30,
